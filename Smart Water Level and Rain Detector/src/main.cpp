@@ -135,7 +135,7 @@ void loop()
     status_sungai = "aman";
     firebaseSetString("status/status sungai", status_sungai);
   }
-  else if (99 > ketinggian_air > 40)
+  else if (ketinggian_air>40 && ketinggian_air<100)
   {
     status_sungai = "waspada";
     firebaseSetString("status/status sungai", status_sungai);
