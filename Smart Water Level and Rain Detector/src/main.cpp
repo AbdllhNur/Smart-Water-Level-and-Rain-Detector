@@ -5,11 +5,11 @@
 #include "addons/TokenHelper.h"
 #include "addons/RTDBHelper.h"
 
-#define WIFI_SSID "myssid"
-#define WIFI_PASSWORD "mypass"
+#define WIFI_SSID "racist"
+#define WIFI_PASSWORD "12345678"
 
-#define API_KEY "myapi"
-#define DATABASE_URL "myurl"
+#define API_KEY "AIzaSyAQtZqFYNN59WpOfr73ZMn6MNQJP7YDwl8"
+#define DATABASE_URL "https://duarrr-proyektor-default-rtdb.asia-southeast1.firebasedatabase.app/"
 
 FirebaseData fbdo;
 FirebaseAuth auth;
@@ -81,8 +81,6 @@ void loop()
   // done : ambil data sensor raindrop + kirim ke firebase
   int rain_value = analogRead(AO_PIN);
   rain_value = rain_value / 4;
-  Serial.println(rain_value);
-  delay(2000);
   firebaseSetInt("sensor/sensor_raindrop", rain_value);
 
   // done : ambil data sensor ultrasonik + kirim ke firebase
@@ -94,7 +92,7 @@ void loop()
   duration = pulseIn(echoPin, HIGH);
   ketinggian_air = duration * sound_speed / 2;
   firebaseSetFloat("sensor/sensor_ultrasonik", ketinggian_air);
-  delay(1000);
+  delay(100);
 
   // done : kirim status hujan berdasarkan analog value sensor raindrop
   if (rain_value>=1000)
@@ -106,25 +104,11 @@ void loop()
   {
     status_hujan = "hujan";
     firebaseSetString("status/status hujan", status_hujan);
-    for (int i = 0; i < 2; i++)
-    {
-      digitalWrite(buzz, HIGH);
-      delay(1000);
-      digitalWrite(buzz, LOW);
-      delay(1000);
-    }
   }
   else if (99 > rain_value)
   {
     status_hujan = "hujan deras";
     firebaseSetString("status/status hujan", status_hujan);
-    for (int i = 0; i < 3; i++)
-    {
-      digitalWrite(buzz, HIGH);
-      delay(1000);
-      digitalWrite(buzz, LOW);
-      delay(1000);
-    }
   }
 
   digitalWrite(buzz, LOW);
@@ -142,9 +126,9 @@ void loop()
     for (int i = 0; i < 5; i++)
     {
       digitalWrite(buzz, HIGH);
-      delay(1000);
+      delay(100);
       digitalWrite(buzz, LOW);
-      delay(1000);
+      delay(100);
     }
   }
   else
