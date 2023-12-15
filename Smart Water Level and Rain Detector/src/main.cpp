@@ -5,11 +5,11 @@
 #include "addons/TokenHelper.h"
 #include "addons/RTDBHelper.h"
 
-#define WIFI_SSID "racist"
-#define WIFI_PASSWORD "12345678"
+#define WIFI_SSID "myssid"
+#define WIFI_PASSWORD "mypass"
 
-#define API_KEY "AIzaSyAQtZqFYNN59WpOfr73ZMn6MNQJP7YDwl8"
-#define DATABASE_URL "https://duarrr-proyektor-default-rtdb.asia-southeast1.firebasedatabase.app/"
+#define API_KEY "myappi"
+#define DATABASE_URL "myurl"
 
 FirebaseData fbdo;
 FirebaseAuth auth;
